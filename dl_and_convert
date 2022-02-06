@@ -1,0 +1,4 @@
+#!/bin/bash
+cd /var/www
+wget -N https://xmltv.ch/xmltv/xmltv-tnt.xml 2>&1 | awk '/saved/ {system("/opt/xml2json.py xmltv-tnt.xml > xmltv-tnt.json")}'
+exec chown unit:unit xmltv-tnt.json xmltv-tnt.xml
