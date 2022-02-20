@@ -1,4 +1,4 @@
-name: Publication Docker image multiarch arm64 v7/arm v6/arm amd64
+name: Publication Docker image multiarch amd64 arm64 arm/v7
 on:
   push:
     branches: [main]
@@ -34,7 +34,7 @@ jobs:
           context: ./
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
-          platforms: linux/386, linux/amd64, linux/arm/v7, linux/arm64
+          platforms: linux/amd64, linux/arm/v7, linux/arm64
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/xmltv_tnt_json_unit
           cache-from: type=local,src=/tmp/.buildx-cache
